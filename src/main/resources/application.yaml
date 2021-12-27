@@ -1,0 +1,32 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: worker
+  cloud:
+    stream:
+      bindings:
+        reporting-out-0:
+          producer:
+            exchange-type: direct
+          destination: report
+        commandFromController-in-0:
+          consumer:
+            exchange-type: direct
+          destination: command
+  rabbitmq:
+    addresses: localhost
+    username: admin
+    password: admin
+logging:
+  level:
+    com:
+      ccwlab:
+        worker: DEBUG
+
+
+jwt:
+  secret: secret
+docker:
+  uri: tcp://127.0.0.1:23750
+  workspace: d:\\temp
