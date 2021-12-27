@@ -26,55 +26,6 @@ public class WorkerApplication {
 
 	public static void main(String[] args) throws InterruptedException {
 		Logger logger =  LoggerFactory.getLogger(WorkerApplication.class);
-
-//		DockerClientConfig config = DefaultDockerClientConfig.createDefaultConfigBuilder()
-//				.withDockerHost("tcp://127.0.0.1:23750")
-//				.build();
-//		DockerHttpClient httpClient = new ApacheDockerHttpClient.Builder()
-//				.dockerHost(config.getDockerHost())
-//				.build();
-//		DockerClient dockerClient = DockerClientImpl.getInstance(config, httpClient);
-//		logger.debug(dockerClient.listImagesCmd().exec().size()+"");
-//
-//		var pullImageResultCallback = new PullImageResultCallback(){
-//			@Override
-//			public void onNext(PullResponseItem item) {
-//				super.onNext(item);
-//				logger.debug("[pullImageCmd] onNext: " + item.toString());
-//			}
-//		};
-//		dockerClient.pullImageCmd("pull image").withRepository("centos:centos7").exec(pullImageResultCallback);
-//		pullImageResultCallback.awaitCompletion();
-//		var res= dockerClient.createContainerCmd("newone")
-//				.withImage("centos:centos8")
-//				.withAttachStderr(true)
-//				.withAttachStdout(true)
-//				.withHostConfig(HostConfig
-//						.newHostConfig()
-//						.withBinds(new Bind("/root",new Volume("/tmp")))
-//				)
-//				.withCmd("sh", "/tmp/hello.sh")
-//				.exec();
-//		dockerClient.startContainerCmd("newone").withContainerId(res.getId()).exec();
-//		WaitContainerResultCallback callback = new WaitContainerResultCallback();
-//		dockerClient.waitContainerCmd("wait a container").withContainerId(res.getId()).exec(callback);
-//		callback.awaitCompletion();
-//
-//		var logContainerResultCallback = new LogContainerResultCallback(){
-//			@Override
-//			public void onNext(Frame item) {
-//				super.onNext(item);
-//				logger.debug("[logContainerCmd] onNext "+item.toString());
-//			}
-//		};
-//		dockerClient.logContainerCmd("newone").withContainerId(res.getId())
-//				.withStdErr(true)
-//				.withStdOut(true)
-//				.withTailAll()
-//				.exec(logContainerResultCallback);
-//		logContainerResultCallback.awaitCompletion();
-//
-//		dockerClient.removeContainerCmd("remove newone").withContainerId(res.getId()).exec();
 		SpringApplication.run(WorkerApplication.class, args);
 	}
 
